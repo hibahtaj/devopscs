@@ -1,0 +1,4 @@
+{% extends 'base.html' %}{% block title %}Home{% endblock %}{% block content %}
+<section class="hero"><span class="badge">Fresh • Fast • Delicious</span><h1>Hungry? We've got you covered.</h1><p>Your favourite comfort food is just a click away.</p><a class="button" href="{{ url_for('menu') }}">Explore Menu →</a></section>
+<section class="info"><div>🍔<h3>Tasty choices</h3><p>Pick from our favourites.</p></div><div>🛒<h3>Easy ordering</h3><p>Add your picks to the cart.</p></div><div>✨<h3>Simple checkout</h3><p>Place a demo order instantly.</p></div></section>
+{% endblock %}

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: quickbite
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: quickbite
+  template:
+    metadata:
+      labels:
+        app: quickbite
+    spec:
+      containers:
+        - name: quickbite
+          image: DOCKER_IMAGE_PLACEHOLDER
+          ports:
+            - containerPort: 5000
+          env:
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: quickbite-secret
+                  key: secret-key
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 3
+            periodSeconds: 5
